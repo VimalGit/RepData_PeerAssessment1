@@ -4,7 +4,7 @@ author: "Vimal Natarajan"
 date: "December 20, 2015"
 output: html_document
 ---
-
+The following report provides some statistical answers to questions in this assessment.
 This report makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
 
 ###Loading & processing the data
@@ -15,7 +15,7 @@ activity$date <- as.Date(activity$date, "%Y-%m-%d")
 activity_no_na <- subset(activity, na.rm=TRUE, na.action=na.omit)
 ```
 
-###Total number of steps per day
+###Calculating the total number of steps by day
 
 ```r
 steps_per_day <- aggregate(activity_no_na$steps, 
@@ -31,7 +31,7 @@ hist(steps_per_day$Steps,
 
 ![plot of chunk Total steps per day](figure/Total steps per day-1.png) 
 
-####This is the mean steps per day
+####This is the mean value of steps per day
 
 ```r
 mean_steps_per_day <- mean(steps_per_day$Steps, na.rm=TRUE)
@@ -42,7 +42,7 @@ mean_steps_per_day
 ## [1] 10766.19
 ```
 
-####This is the median steps per day
+####This is the median value of steps per day
 
 ```r
 median_steps_per_day <- median(steps_per_day$Steps, na.rm=TRUE)
@@ -80,7 +80,7 @@ abline(v=max_steps_at_interval$Interval, col="green")
 ![plot of chunk Average daily activity pattern](figure/Average daily activity pattern-1.png) 
 ####As you can see from the data and diagram above(green line) the 835 minute interval contains the maximum number of steps, in this case 206 steps.
 
-###Missing Values in the dataset
+###Number of missing Values in the dataset
 
 ```r
 activity_with_na <- subset(activity, is.na(activity$steps))
@@ -108,7 +108,7 @@ imputed_activity <- activity
 imputed_activity[is.na(imputed_activity)] <- overall_mean
 ```
 
-###Total number of steps per day after imputing missing values
+###Calculating the total number of steps by day after imputing missing values
 
 ```r
 imputed_steps_per_day <- aggregate(imputed_activity$steps, 
@@ -189,3 +189,5 @@ ggplot(imputed_mean_by_daytype_interval, aes(factor(Interval), Steps)) +
 ```
 
 ![plot of chunk Activity pattern between Weekdays and Weekends after imputing](figure/Activity pattern between Weekdays and Weekends after imputing-1.png) 
+
+####End of the report
