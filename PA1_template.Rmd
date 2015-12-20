@@ -7,18 +7,10 @@ output: html_document
 
 This report makes use of data from a personal activity monitoring device. This device collects data at 5 minute intervals through out the day. The data consists of two months of data from an anonymous individual collected during the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
 
-###Loading the data
-```{r Loading the data}
+###Loading & processing the data
+```{r Loading & processing the data}
 activity <- read.csv("activity.csv")
-```
-
-###Converting date from factor to date type
-```{r Converting date to date type}
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
-```
-
-###Exclude values with "NA"
-```{r Excluding NA values}
 activity_no_na <- subset(activity, na.rm=TRUE, na.action=na.omit)
 ```
 
@@ -33,8 +25,16 @@ hist(steps_per_day$Steps,
      main = "Histogram of Steps per Day", 
      xlab = "Steps", 
      ylab = "Days")
+```
+
+####This is the means steps per day
+```{R Mean steps per day}
 mean_steps_per_day <- mean(steps_per_day$Steps, na.rm=TRUE)
 mean_steps_per_day
+```
+
+####This is the median steps per day
+```{R Median steps per day}
 median_steps_per_day <- median(steps_per_day$Steps, na.rm=TRUE)
 median_steps_per_day
 ```
