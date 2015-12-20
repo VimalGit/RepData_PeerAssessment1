@@ -78,6 +78,7 @@ abline(v=max_steps_at_interval$Interval, col="green")
 ```
 
 ![plot of chunk Average daily activity pattern](figure/Average daily activity pattern-1.png) 
+####As you can see from the data and diagram above(green line) the 835 minute interval contains the maximum number of steps, in this case 206 steps.
 
 ###Missing Values in the dataset
 
@@ -116,7 +117,7 @@ imputed_steps_per_day <- aggregate(imputed_activity$steps,
 names(imputed_steps_per_day) <- c('Date', 'Steps')
 hist(imputed_steps_per_day$Steps, 
      breaks = 30,
-     main = "Histogram of Steps per Day afterimputing missing values", 
+     main = "Histogram of Steps per Day after imputing missing values", 
      xlab = "Steps", 
      ylab = "Days")
 ```
@@ -149,7 +150,7 @@ names(imputed_mean_by_interval) <- c("Interval","Steps")
 plot(imputed_mean_by_interval$Interval, 
      imputed_mean_by_interval$Steps, 
      type = "l",
-     main="Mean steps by Interval",
+     main="Mean steps by Interval after imputing",
      xlab="Interval",
      ylab="Mean Steps")
 imputed_max_steps_at_interval <- imputed_mean_by_interval[which.max(imputed_mean_by_interval$Steps),]
@@ -167,7 +168,7 @@ abline(v=imputed_max_steps_at_interval$Interval, col="green")
 
 ![plot of chunk Average daily activity patter after imputing](figure/Average daily activity patter after imputing-1.png) 
 
-####As you can see from the data and graph above, the interval mean values have gone down after imputing the missing values with overall mean.
+####As you can see from the data and graph above, the interval mean values have gone down from 206 to 184 after imputing the missing values with overall mean.
 
 ###Activity patterns between Weekdays and Weekends with imputed data
 
