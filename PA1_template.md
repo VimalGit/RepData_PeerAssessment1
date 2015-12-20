@@ -31,7 +31,7 @@ hist(steps_per_day$Steps,
 
 ![plot of chunk Total steps per day](figure/Total steps per day-1.png) 
 
-####This is the means steps per day
+####This is the mean steps per day
 
 ```r
 mean_steps_per_day <- mean(steps_per_day$Steps, na.rm=TRUE)
@@ -166,7 +166,7 @@ imputed_max_steps_at_interval
 abline(v=imputed_max_steps_at_interval$Interval, col="green")
 ```
 
-![plot of chunk Average daily activity patter after imputing](figure/Average daily activity patter after imputing-1.png) 
+![plot of chunk Average daily activity pattern after imputing](figure/Average daily activity pattern after imputing-1.png) 
 
 ####As you can see from the data and graph above, the interval mean values have gone down from 206 to 184 after imputing the missing values with overall mean.
 
@@ -188,4 +188,4 @@ ggplot(imputed_mean_by_daytype_interval, aes(factor(Interval), Steps)) +
   labs(title="Mean steps by Interval between Weekdays and Weekends")
 ```
 
-![plot of chunk Activity patter between Weekdays and Weekends after imputing](figure/Activity patter between Weekdays and Weekends after imputing-1.png) 
+![plot of chunk Activity pattern between Weekdays and Weekends after imputing](figure/Activity pattern between Weekdays and Weekends after imputing-1.png) 

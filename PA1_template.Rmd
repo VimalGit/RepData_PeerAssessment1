@@ -27,7 +27,7 @@ hist(steps_per_day$Steps,
      ylab = "Days")
 ```
 
-####This is the means steps per day
+####This is the mean steps per day
 ```{R Mean steps per day}
 mean_steps_per_day <- mean(steps_per_day$Steps, na.rm=TRUE)
 mean_steps_per_day
@@ -88,7 +88,7 @@ imputed_median_steps_per_day
 ```
 
 ###Average daily activity pattern with max step Interval after imputing missing values 
-```{R Average daily activity patter after imputing}
+```{R Average daily activity pattern after imputing}
 imputed_mean_by_interval <- aggregate(imputed_activity$steps, by=list(imputed_activity$interval), FUN=mean, na.rm=TRUE)
 names(imputed_mean_by_interval) <- c("Interval","Steps")
 plot(imputed_mean_by_interval$Interval, 
@@ -105,7 +105,7 @@ abline(v=imputed_max_steps_at_interval$Interval, col="green")
 ####As you can see from the data and graph above, the interval mean values have gone down from 206 to 184 after imputing the missing values with overall mean.
 
 ###Activity patterns between Weekdays and Weekends with imputed data
-```{R Activity patter between Weekdays and Weekends after imputing}
+```{R Activity pattern between Weekdays and Weekends after imputing}
 imputed_activity_with_day <- imputed_activity
 imputed_activity_with_day$day <- weekdays(as.Date(imputed_activity_with_day$date))
 imputed_activity_with_day$daytype <- ifelse(imputed_activity_with_day$day == "Saturday" | imputed_activity_with_day$day == "Sunday", "Weekend" , "Weekday")
